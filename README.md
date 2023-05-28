@@ -3,8 +3,8 @@
 A new Flutter project.
 
 ## Video
+[![flutter_tic_tac_toe](https://github.com/Jerald-Joyson/flutter_tic_tac_toe_game/assets/121479325/06235ef6-f49f-40da-92ce-58885ebad28f)]
 
-https://github.com/Jerald-Joyson/flutter_tic_tac_toe_game/assets/121479325/06235ef6-f49f-40da-92ce-58885ebad28f
 
 
 ## Getting Started
