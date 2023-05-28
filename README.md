@@ -2,6 +2,11 @@
 
 A new Flutter project.
 
+## Video
+
+https://github.com/Jerald-Joyson/flutter_tic_tac_toe_game/assets/121479325/06235ef6-f49f-40da-92ce-58885ebad28f
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
