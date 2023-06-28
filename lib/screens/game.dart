@@ -16,7 +16,8 @@ class _GameScreenState extends State<GameScreen> {
   List<String> displayXO = ['', '', '', '', '', '', '', '', ''];
   List<int> matchedIndexes = [];
   int attempts = 0;
-
+  Color playerColorO = MainColor.primaryColor;
+  Color playerColorX = MainColor.primaryColor;
   int oScore = 0;
   int xScore = 0;
   int filledBoxes = 0;
@@ -71,9 +72,16 @@ class _GameScreenState extends State<GameScreen> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        'Player O',
-                        style: customFontWhite,
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          border: Border.all(width: 5, color: playerColorO),
+                        ),
+                        padding: EdgeInsets.only(bottom: 5),
+                        child: Text(
+                          'Player O',
+                          style: customFontWhite,
+                        ),
                       ),
                       Text(
                         oScore.toString(),
@@ -85,9 +93,16 @@ class _GameScreenState extends State<GameScreen> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        'Player X',
-                        style: customFontWhite,
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          border: Border.all(width: 5, color: playerColorX),
+                        ),
+                        padding: EdgeInsets.only(bottom: 5),
+                        child: Text(
+                          'Player X',
+                          style: customFontWhite,
+                        ),
                       ),
                       Text(
                         xScore.toString(),
@@ -163,9 +178,13 @@ class _GameScreenState extends State<GameScreen> {
       setState(() {
         if (oTurn && displayXO[index] == '') {
           displayXO[index] = 'O';
+          playerColorX = MainColor.secondaryColor;
+          playerColorO = MainColor.primaryColor;
           filledBoxes++;
         } else if (!oTurn && displayXO[index] == '') {
           displayXO[index] = 'X';
+          playerColorX = MainColor.primaryColor;
+          playerColorO = MainColor.secondaryColor;
           filledBoxes++;
         }
 
@@ -345,6 +364,10 @@ class _GameScreenState extends State<GameScreen> {
             onPressed: () {
               startTimer();
               _clearBoard();
+              if (attempts == 0) {
+                playerColorX = MainColor.primaryColor;
+                playerColorO = MainColor.secondaryColor;
+              }
               attempts++;
             },
             child: Text(
